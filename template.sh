@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
 
 # taken from here - https://dev.to/thiht/shell-scripts-matter
+# And extended with info from here - http://redsymbol.net/articles/unofficial-bash-strict-mode/
+
+# ----
+
+set -euo pipefail
+IFS=$'\n\t'
+
+# set -e
+#   exits on error
+# set -u
+#   exits on undefined variables
+# set -x
+#   echo's everything to stdout - v useful for debugging
+# set -o pipeline
+#   does not mask pipeline errors
+# set -o noclobber
+#   prevents overwriting of existing files
+
+# Changing the IFS means you can properly parse line-by-line input, even if it includes spaces
 
 # ----
 
@@ -44,8 +63,8 @@ usage() {
 expr "$*" : ".*--help" > /dev/null && usage
 
 # uses lines starting #/ as the documentation
-# ----
 
+# ----
 
 # check if script is sourced or being run directly
 if [[ "${BASH_SOURCE[0]}" = "$0" ]]; then
@@ -53,3 +72,4 @@ if [[ "${BASH_SOURCE[0]}" = "$0" ]]; then
     # Script goes here
     # ...
 fi
+
