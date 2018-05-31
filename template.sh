@@ -32,6 +32,7 @@ IFS=$'\n\t'
 # ----
 
 # defaults for variables
+# this is essential for positional parameters with set -u
 my_arg=${1:-"default"}
 
 # ----
